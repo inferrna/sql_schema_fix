@@ -17,11 +17,11 @@ fn get_mysql_connection(dburl: &str) -> (PooledConn, String) {
 
 #[derive(Clone, ValueEnum, Parser, Debug)]
 enum WhatToShow {
-    ///Afford only positive changes. Add table, column, etc.
+    ///Apply only positive changes. Add table, column, etc.
     Plus,
-    ///Afford only negative changes. Drop table, column, etc.
+    ///Apply only negative changes. Drop table, column, etc.
     Minus,
-    ///Afford all changes.
+    ///Apply all changes.
     All
 }
 
