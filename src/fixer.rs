@@ -1,7 +1,7 @@
 use mysql::{Params, PooledConn};
 use indexmap::IndexMap;
 use mysql::prelude::Queryable;
-use sql_schema_diff::{Column, TableIndex};
+use sql_schema_fix::{Column, TableIndex};
 use crate::KeysOrder;
 
 fn extract_columns_from_db(conn: &mut PooledConn, db_name: &str, table_name: &str) -> IndexMap<String, Column> {

@@ -3,7 +3,7 @@ use mysql::*;
 use mysql::prelude::*;
 use clap::{Parser, ValueEnum};
 use indexmap::IndexMap;
-use sql_schema_diff::{Column, TableIndex};
+use sql_schema_fix::{Column, TableIndex};
 use crate::fixer::MySQLFixer;
 
 mod fixer;
