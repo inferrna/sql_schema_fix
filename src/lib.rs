@@ -16,7 +16,6 @@ impl TableIndex {
     pub fn new(columns_string: String, unique: bool, primary: bool) -> Self {
         let mut columns: Vec<String> = columns_string
             .split(',')
-            .into_iter()
             .map(|c|c.trim().to_string())
             .collect();
         columns.sort();
@@ -99,9 +98,9 @@ impl Column {
     pub fn get_default(&self) -> Option<String> {
         let raw_def_val = match (self.nullable, self.default.as_str()) {
             (false,  "NULL") => None,
-            _ => match self.is_numeric {
-                true => Some(self.default.clone()),
-                false => Some(format!("\"{}\"", self.default)),
+            _ => match self.is_text {
+                false => Some(self.default.clone()),
+                true => Some(format!("\"{}\"", self.default)),
             }
         }?;
         let def_val = match (self.is_text, self.default.as_str()) {
